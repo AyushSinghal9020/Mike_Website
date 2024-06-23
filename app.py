@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st 
-from tqdm.notebook import tqdm
+# from tqdm.notebook import tqdm
 from langchain_cohere import ChatCohere
 from langchain_core.messages import HumanMessage
 from langchain_community.vectorstores import FAISS
@@ -47,14 +47,14 @@ def create_vectorstore(chunks , batch_size , embeddings , save = False , vector_
         in range(0 , len(chunks) , batch_size)
     ]
 
-    pbar = tqdm(total = len(batches) , desc = 'Ingesting documents')
+    # pbar = tqdm(total = len(batches) , desc = 'Ingesting documents')
 
     for batch in batches :
 
         if vectorstore : vectorstore.add_texts(texts = batch)
         else : vectorstore = FAISS.from_texts(texts = batch , embedding = embeddings)
 
-        pbar.update(1)
+        # pbar.update(1)
 
     if save : vectorstore.save_local(vector_store_name)
 
