@@ -1,0 +1,10 @@
+tqdm
+pandas 
+cohere
+langchain
+faiss-cpu
+langchain_core
+# ipython-autotime 
+langchain_cohere
+langchain_community
+sentence-transformers
